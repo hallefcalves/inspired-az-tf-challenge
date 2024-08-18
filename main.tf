@@ -28,6 +28,10 @@ module "vmss" {
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   vm_size             = var.vm_size
-  subnet_id           = element(module.vnet.subnets, 0)
+  subnet_id           = element(module.vnet.subnet_ids, 0)
   ssh_key             = var.ssh_key
+
+  load_balancer_backend_address_pool_ids = module.alb.lb_backend_pool_id
+  load_balancer_health_probe_id          = module.alb.load_balancer_health_probe_id
+  depends_on                             = [module.alb]
 }

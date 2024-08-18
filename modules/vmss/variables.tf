@@ -17,3 +17,13 @@ variable "subnet_id" {
 variable "ssh_key" {
   type = string
 }
+
+variable "load_balancer_backend_address_pool_ids" {
+  description = "Load Balancer backend pool ID"
+  type = list(string)
+}
+
+variable "load_balancer_health_probe_id" {
+  description = "Load balancer health probe ID"
+  type = string
+}

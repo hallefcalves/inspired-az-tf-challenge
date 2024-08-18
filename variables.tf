@@ -26,3 +26,9 @@ variable "vm_size" {
   type        = string
   default     = "Standard_DS2_v2"
 }
+
+variable "ssh_key" {
+  description = "The SSH public key for the VMSS"
+  type        = string
+}
+

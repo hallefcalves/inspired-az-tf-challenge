@@ -1,5 +1,7 @@
 provider "azurerm" {
-  features = {}
+  features {
+
+  }
 }
 
 terraform {
@@ -9,5 +11,7 @@ terraform {
       version = "~> 3.0"
     }
   }
-  backend "local" {}
+  backend "local" {
+
+  }
 }

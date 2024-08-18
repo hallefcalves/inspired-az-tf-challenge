@@ -1,2 +1,3 @@
-[webservers]
-<vmss_private_ip>
+---
+- hosts: 127.0.0.1
+  connection: local
