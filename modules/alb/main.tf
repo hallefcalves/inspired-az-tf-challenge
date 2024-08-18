@@ -20,7 +20,7 @@ resource "azurerm_public_ip" "alb" {
 resource "azurerm_lb_backend_address_pool" "lb_backend" {
   name                = "backend-pool"
   loadbalancer_id     = azurerm_lb.main.id
-  
+
 }
 
 resource "azurerm_lb_rule" "lb_rule" {
@@ -32,6 +32,7 @@ resource "azurerm_lb_rule" "lb_rule" {
   frontend_ip_configuration_name = azurerm_lb.main.frontend_ip_configuration.0.name
   backend_address_pool_ids       = [azurerm_lb_backend_address_pool.lb_backend.id]
   probe_id                       = azurerm_lb_probe.http_probe.id
+  
 }
 
 resource "azurerm_lb_probe" "http_probe" {
