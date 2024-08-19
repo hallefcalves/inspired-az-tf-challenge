@@ -7,6 +7,6 @@ output "lb_backend_pool_id" {
   value = [azurerm_lb_backend_address_pool.lb_backend.id]
 }
 
-output "load_balancer_health_probe_id"{
+output "load_balancer_health_probe_id" {
   value = azurerm_lb_probe.http_probe.id
 }

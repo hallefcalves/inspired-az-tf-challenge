@@ -20,15 +20,15 @@ variable "ssh_key" {
 
 variable "network_security_group_id" {
   description = "ID of NSG to be used"
-  type = string
+  type        = string
 }
 
 variable "load_balancer_backend_address_pool_ids" {
   description = "Load Balancer backend pool ID"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "load_balancer_health_probe_id" {
   description = "Load balancer health probe ID"
-  type = string
+  type        = string
 }

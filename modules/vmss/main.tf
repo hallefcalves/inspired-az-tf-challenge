@@ -3,16 +3,16 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
   resource_group_name = var.resource_group_name
   location            = var.location
   sku                 = var.vm_size
-  instances = 2
-  admin_username = "adminuser"
+  instances           = 2
+  admin_username      = "adminuser"
   admin_ssh_key {
-    username = "adminuser"
+    username   = "adminuser"
     public_key = var.ssh_key
   }
 
   disable_password_authentication = true
 
-  zones = [ 1, 2, 3 ]
+  zones = [1, 2, 3]
 
   source_image_reference {
     publisher = "Canonical"
@@ -23,25 +23,25 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
 
   os_disk {
     storage_account_type = "Standard_LRS"
-    caching = "ReadWrite"
+    caching              = "ReadWrite"
   }
 
   network_interface {
-    name = "example"
+    name    = "example"
     primary = true
     ip_configuration {
-      name = "internal"
-      primary = true
-      subnet_id = var.subnet_id
+      name                                   = "internal"
+      primary                                = true
+      subnet_id                              = var.subnet_id
       load_balancer_backend_address_pool_ids = var.load_balancer_backend_address_pool_ids
     }
     network_security_group_id = var.network_security_group_id
-  } 
+  }
 
   upgrade_mode = "Automatic"
 
   automatic_os_upgrade_policy {
-    disable_automatic_rollback = false
+    disable_automatic_rollback  = false
     enable_automatic_os_upgrade = true
   }
 

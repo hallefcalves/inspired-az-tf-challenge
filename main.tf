@@ -34,5 +34,5 @@ module "vmss" {
 
   load_balancer_backend_address_pool_ids = module.alb.lb_backend_pool_id
   load_balancer_health_probe_id          = module.alb.load_balancer_health_probe_id
-  depends_on                             = [module.alb]
+  depends_on                             = [module.alb, module.nsg, module.vnet]
 }
